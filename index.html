@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>callback Function</title>
+    </head>
+    <body>
+        <h1 id="myfrid"></h1>
+
+        <script>
+            let myfriends = [
+                {name:"Anjali",age:"20"},
+                {name:"Kiran",age:"25"},
+                {name:"Rudransh",age:"1.5"}
+            ]
+            let envolveNewFriend = (friend,callback)=>{
+                setTimeout(()=>{
+                    myfriends.push(friend)
+                    callback()
+                }
+                    ,5000)
+            }
+            let getMyAllFriends = ()=>{
+                setTimeout(()=>{
+                    let fri = "";
+                    myfriends.forEach(friend=>{
+                        fri += `${friend.name}`+` `+`${friend.age}`+`<br />`
+                    })
+                    document.getElementById("myfrid").innerHTML = fri;
+                        console.log(fri);
+                },2000)}
+            let newfriend = {name:"Kamlesh",age:"28"}
+            envolveNewFriend(newfriend,getMyAllFriends);
+        </script>
+    </body>
+</html>

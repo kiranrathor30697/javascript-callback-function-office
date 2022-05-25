@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>callback Function</title>
+    </head>
+    <body>
+        <h2 id="fm"></h2>
+        <script>
+
+            //callback Function
+
+            let myFamilyMembers = [
+                                    {"name":"Kamlesh"},
+                                    {name:"Rudransh"}
+                                ];
+
+            let envolveNewMember = (fm,cbfn)=>{
+                    setTimeout(()=>{
+                        myFamilyMembers.push(fm)
+                        cbfn()
+                    },5000)
+                }
+
+            let getFamilyMember = ()=>{
+                setTimeout(()=>{
+                    let familyMember = "";
+                    myFamilyMembers.forEach(fm=>{
+                        familyMember += `${fm.name}`+`<br />`
+                    })
+                    document.getElementById("fm").innerHTML = familyMember
+                },3000)
+            }
+            let newfm = {name:"Kiran"}
+            envolveNewMember(newfm,getFamilyMember);
+            //getFamilyMember();
+//------------------------------------------------------------------------------------------------
+        //Normal Functions
+
+        //     let myFamilyMembers = [
+        //                     {"name":"Kamlesh"},
+        //                     {name:"Rudransh"}
+        //                 ];
+
+        //    let envolveNewMember = (fm)=>{
+        //         setTimeout(()=>{
+        //             myFamilyMembers.push(fm)
+        //         },5000)
+        //     }
+
+        //     let getFamilyMember = ()=>{
+        //         setTimeout(()=>{
+        //             let familyMember = "";
+        //             myFamilyMembers.forEach(fm=>{
+        //                 familyMember += `${fm.name}`+`<br />`
+        //             })
+        //             document.getElementById("fm").innerHTML = familyMember
+        //         },3000)
+        //     }
+        //     let newfm = {name:"Kiran"}
+        //     envolveNewMember(newfm);
+        //     getFamilyMember();
+        </script>
+    </body>
+</html>
